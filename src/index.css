@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --color-navy-950: #061224;
+  --color-navy-900: #0b1f3a;
+  --color-navy-800: #112a4d;
+  --color-navy-700: #1a3a66;
+  --color-navy-600: #26507f;
+  --color-navy-300: #9db2cf;
+  --color-navy-200: #c7d4e6;
+
+  --color-brand-50: #eef4ff;
+  --color-brand-100: #dce8ff;
+  --color-brand-200: #bdd3ff;
+  --color-brand-300: #8fb3fa;
+  --color-brand-400: #5d8ef3;
+  --color-brand-500: #3570e6;
+  --color-brand-600: #1f5bd0;
+  --color-brand-700: #1a49a8;
+  --color-brand-800: #193d86;
+
+  --color-surface: #f5f7fa;
+  --color-canvas: #eef2f6;
+  --color-line: #e3e8ef;
+
+  /* Grafy – stavové barvy (ověřeno validátorem palety; vždy s legendou a mezerami mezi segmenty) */
+  --color-viz-ontime: #0ca30c;
+  --color-viz-late: #eda100;
+  --color-viz-pending: #6250d6;
+  --color-viz-overdue: #d03b3b;
+  --color-viz-progress: #2a78d6;
+  --color-viz-returned: #eb6834;
+  --color-viz-neutral: #a9b1bd;
+  --color-viz-planned: #d5dbe3;
+
+  --shadow-card: 0 1px 2px rgba(16, 24, 40, 0.04), 0 1px 3px rgba(16, 24, 40, 0.06);
+  --shadow-pop: 0 10px 30px -10px rgba(11, 31, 58, 0.25), 0 4px 10px -4px rgba(11, 31, 58, 0.12);
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-surface text-slate-800 antialiased;
+    font-feature-settings: "cv11", "ss01";
+    font-size: 14px;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--color-brand-100);
+  }
+}
+
+@layer components {
+  .scroll-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .pa-ref {
+    outline: 1.5px dashed #a855f7;
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
